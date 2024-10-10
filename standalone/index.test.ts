@@ -5,6 +5,9 @@ import { openai } from "@ai-sdk/openai";
 import fetch from "node-fetch";
 import fs from "fs";
 import * as path from "path";
+import {
+  GenerateObjectResult,
+} from "ai";
 
 async function analyzeTitle(title: string, content: string): Promise<string> {
   configureTask("analyze_title", "llama3");
@@ -57,8 +60,8 @@ async function runTests(testDataset: TestCase[]): Promise<TestResult[]> {
     try {
       const { content, fileName, existingFolders } = testCase;
 
-      const generatedTitle = await generateDocumentTitle(content);
-      const titleAnalysis = await analyzeTitle(generatedTitle, content);
+      const generatedTitle: GenerateObjectResult<{ name?: string }> = await generateDocumentTitle(content, fileName, openai("gpt-4o"), "");
+      const titleAnalysis = await analyzeTitle(generatedTitle.object.name ?? fileName, content);
 
       const suggestedFolder = await guessRelevantFolder(
         content,
@@ -163,9 +166,8 @@ function generateStatistics(testResults: TestResult[]): void {
       isValidPath,
       isValidFileName,
     } = result;
-    return `"${generatedTitle}","${titleAnalysis}","${
-      suggestedFolder || ""
-    }","${folderAnalysis}",${isValidPath},${isValidFileName}\n`;
+    return `"${generatedTitle}","${titleAnalysis}","${suggestedFolder || ""
+      }","${folderAnalysis}",${isValidPath},${isValidFileName}\n`;
   });
 
   const csvContent = csvHeader + csvRows.join("");

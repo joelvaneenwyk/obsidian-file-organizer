@@ -60,7 +60,6 @@ export async function guessRelevantFolder(
   folders: string[],
   model: LanguageModel
 ) {
-  // eslint-disable-next-line no-case-declarations
   const response = await generateObject({
     model,
     schema: z.object({
@@ -71,10 +70,9 @@ export async function guessRelevantFolder(
     )}. Base your decision on the relevance of the content and the file name to the folder themes. If no existing folder is suitable, respond with null.`,
   });
   console.log(
-    `${
-      response.object.suggestedFolder
-        ? "Suggested folder: " + response.object.suggestedFolder
-        : "No suggested folder"
+    `${response.object.suggestedFolder
+      ? "Suggested folder: " + response.object.suggestedFolder
+      : "No suggested folder"
     }`
   );
 
@@ -122,7 +120,7 @@ export async function generateRelationships(
 
           List of Files:
           ${files.map((file: { name: string }) => `${file.name}`).join(", ")}
-          
+
           Determine which five files are most similar to the active file based on their content. Provide a ranked list of the top 5 similar file names, each on a new line. If no files are similar, return null.`,
   });
 
@@ -135,7 +133,7 @@ export async function generateDocumentTitle(
   currentName: string,
   model: LanguageModel,
   renameInstructions: string
-) {
+): Promise<GenerateObjectResult<{ name?: string }>> {
   console.log("renameInstructions", renameInstructions);
   // console log the prompt and system
   const prompt = `You are an AI specialized in generating concise and relevant document titles. Ensure the title is under 50 characters, contains no special characters, and is highly specific to the document's content.
@@ -150,7 +148,7 @@ export async function generateDocumentTitle(
 
   console.log("prompt", prompt);
   console.log("system", system);
-  const response = await generateObject({
+  const response: GenerateObjectResult<{ name?: string }> = await generateObject({
     model,
     schema: z.object({
       name: z.string().max(60),
@@ -228,16 +226,16 @@ export async function classifyDocument(
     prompt: `Given the text content:
 
           "${content}"
-          
+
           and if relevant, the file name:
-          
+
           "${fileName}"
-          
+
           Please identify which of the following document types best matches the content:
-          
+
           Template Types:
           ${templateNames.join(", ")}
-          
+
           If the content clearly matches one of the provided template types, respond with the name of that document type. If the content does not clearly match any of the template types, respond with an empty string.`,
   });
 
@@ -257,10 +255,10 @@ export async function formatDocumentContent(
     }),
     system: "Answer in markdown",
     prompt: `Format the following content according to the given instruction:
-        
+
         Content:
         "${content}"
-        
+
         Formatting Instruction:
         "${formattingInstruction}"`,
   });
@@ -289,7 +287,7 @@ export async function identifyConceptsAndFetchChunks(
     1. Identify the key concepts in the document.
     2. For each concept, extract the most relevant chunk of information.
     3. Return a list of concepts, each with its name and associated chunk of information.
-    
+
     Aim to split the document into the fewest atomic chunks possible while capturing all key concepts.`,
   });
 
