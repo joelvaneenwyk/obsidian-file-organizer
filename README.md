@@ -1,119 +1,87 @@
-# AI File Organizer 2000
+# File Organizer 2000
 
-This is an Obsidian Plugin that uses AI to help you keep your files organized. It tags, renames, and moves files to the most appropriate folders in your vault. You'll also be able to have your images annotated, and to create AI templates.
+Transform your Obsidian workflow with AI-powered organization and note management. 
 
-### Features
+Features:
+- Agentic Chat
+- File Organization
+- Meetings
 
-- Automatically move files to the correct folder
-- AI suggestions to organize your files. Apply tags, aliases, rename & more
-- Supports text and images
-- Create and apply custom AI templates
-- Local-first LLM support (see advanced settings in plugin)
+<img width="1840" alt="Screenshot 2025-01-18 at 09 07 18" src="https://github.com/user-attachments/assets/efce35ad-fbf9-47c2-a6e8-a509709e7b7c" />
 
-  <img width="900" alt="Screenshot 2024-04-30 at 14 05 30" src="https://github.com/different-ai/file-organizer-2000/assets/11430621/2e2cdf14-c6d0-4fd0-8e02-268928ad7ef3">
+## 🌟 Key Use Cases
 
-## Tips and Tricks
+### 📝 Intelligent Meeting Notes (Granola-style)
+- **Granola-like Meeting Notes**: Transform your meetings into structured, actionable notes with the same powerful organization as Granola
+- **Automated Enhancement**: Record meetings and let AI transform them into clear, structured notes with action items
+- **Smart Transcript Integration**: Automatically merge new meeting transcripts with existing notes, maintaining context and coherence
+- **Customizable Templates**: Create your own meeting note templates for consistent formatting across all meetings
 
-[![Thumbnail (2)](https://github.com/different-ai/file-organizer-2000/assets/11430621/1b2c524b-11bc-484d-9255-4699783303bf)](https://youtube.com/playlist?list=PLgRcC-DFR5jdUxbSBuNeymwYTH_FSVxio&si=I7VpzzAnY0XVQ15c)
+### ✍️ Handwritten Notes Digitization
+- **Advanced OCR Integration**: Automatically convert handwritten notes and diagrams into searchable digital text
+- **Smart Organization**: AI automatically suggests appropriate file names, tags, and folders for your digitized notes
+- **Batch Processing**: Drop multiple handwritten notes into the Inbox for automated processing
+- **Diagram Recognition**: Preserves and processes hand-drawn diagrams alongside text
 
-## How to use
+### 🗄️ Smart Vault Management
+Transform your vault into an intelligent knowledge base using our powerful tools:
 
-### A.  AI Assistant View
+1. **Context-Aware File Organization**
+   - AI Assistant suggests optimal file locations based on content
+   - Automatic tagging and categorization
+   - Smart folder suggestions based on existing vault structure
 
-Get suggestions and choose what to apply with the Assistant view. Here's how to use it:
+2. **Powerful Search and Retrieval**
+   - Search across your vault using natural language
+   - Find files by date range, content type, or keywords
+   - Include YouTube transcripts in your search context
 
-1. Click on the Assistant View Icon or set up the "Show Assistant" hotkey to open the Sidebar
-2. Select any of your files and choose which changes to apply
+3. **Custom Automation Tools**
+   - LastModifiedHandler: Track and organize recently modified files
+   - ScreenpipeHandler: Monitor daily activities and notes
+   - ExecuteActionsHandler: Automate repetitive file management tasks
 
-<img width="1277" alt="Screenshot 2024-05-24 at 11 42 17 PM" src="https://github.com/different-ai/file-organizer-2000/assets/46509400/dc06a61f-64d0-4e10-898d-3e0330004e94">
+4. **AI Chat Integration**
+   - Context-aware AI chat that understands your vault structure
+   - Select multiple files, folders, or tags to include in chat context
+   - Create and save custom prompts for repeated tasks
 
-### B.  AI Inbox
+## 🚀 Getting Started
 
-Auto-organize with the AI Inbox.
+Choose your preferred setup:
 
-We recommend the AI Assistant view for more control. But the AI Inbox can be handy as well. Simply move any of your files to the "Inbox" folder and the plugin will automatically move it to the folder it belongs. Additional configuration can also be specified within the plugin settings.
+### A. Cloud Subscription
+1. Access our managed service with all features included
+2. No setup required - just activate your license key
+3. Regular updates and new features
 
-Move your unorganized files into `_FileOrganizer2000/Inbox`
+### B. Self-Hosted Solution
+1. Run your own instance with full control
+2. Use your preferred AI models
+3. Complete privacy with local processing
 
-![image](https://github.com/different-ai/file-organizer-2000/assets/11430621/295038f0-170c-456e-8e0a-e89c31719b95)
+[... rest of existing setup instructions ...]
 
-It takes a sec, and then renames, and organizes your file.
+## 📱 Mobile Integration
 
-![image](https://github.com/different-ai/file-organizer-2000/assets/11430621/f9fd716f-6ada-45c4-bd59-a4efcd79b0e5)
+Seamlessly integrate with your mobile workflow:
+- iOS Shortcut for sending Apple Notes to Obsidian
+- Voice memo support for instant meeting notes
+- Cloud sync compatibility (works great with iCloud)
 
-See plugin settings to customize the changes AI Inbox applies to your files.
+## 🛠️ Advanced Features
 
-### C. Create custom AI Templates
+### Custom AI Templates
+Create powerful automation workflows:
+- Define custom processing rules
+- Set up automatic file naming conventions
+- Configure content formatting templates
 
-See video: https://www.youtube.com/watch?v=rommuUXRgUw&t=17s
+### Multi-Modal Support
+Process various types of content:
+- Audio transcription
+- Image OCR
+- PDF text extraction
+- YouTube video transcripts
 
-## Setup
-
-Choose between any of the three setups below
-
-### A. Pro Access
-
-1. Go to general settings inside the plugin settings
-2. Choose "Use Pro Account"
-3. Click login and follow instructions
-
-### B. Use your own LLM (without self-hosting)
-
-1. Go to general settings inside the plugin settings
-2. Get your OpenAI API key + top up with credits
-3. Paste the API key in the OpenAI API Key input
-4. That's it you should be ready to go!
-
-<img width="836" alt="byok" src="https://github.com/different-ai/file-organizer-2000/assets/46509400/2bcc6824-236d-40ae-895b-d501401238bd">
-
-### C. Self-hosting
-
-1. Run the server
-
-   For Linux/macOS:
-
-   ```sh
-   cd ./app
-   npm i && npm run build
-   OPENAI_API_KEY=[your open ai api key] npm run start
-   ```
-
-   Replace `[your open ai api key]` with your actual OpenAI API key.
-
-   For Windows (PowerShell):
-
-   ```sh
-   cd .\app
-   npm i; npm run build
-   $env:OPENAI_API_KEY="your open ai api key"; npm run start
-   ```
-
-   Replace `your open ai api key` with your actual OpenAI API key.
-
-2. Go inside the Settings of the plugin and enable "Self-hosted"
-
-<img width="707" alt="Screenshot 2024-04-13 at 07 16 21" src="https://github.com/different-ai/file-organizer-2000/assets/11430621/ca2222c9-cb8d-4d15-8459-2da4c9662f24">
-
-## Testing Different models
-
-For those who would like to play around with different models, there is a promptfoo.yaml file in the project including examples with local LLMS.
-See link for more info: https://promptfoo.dev/docs/configuration/guide/
-
-## Community
-
-Join the [discord server](https://discord.gg/udQnCRFyus) for more.
-
-## Small iOS shortcut for easy access
-
-The iOS shortcut below makes it easy for you to easily work from your phone with this plugin.
-
-https://www.icloud.com/shortcuts/06915768862848fb9711f2f19b6405e2
-
-## To Do
-
-- [ ] Replace GPT Vision by a local model
-- [ ] Make it easy for people to extend whatever workflow.
-
-### Notes
-
-This plugin interacts with your filesystem.
+[... rest of existing content ...]

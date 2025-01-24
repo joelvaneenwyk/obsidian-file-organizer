@@ -1,6 +1,12 @@
 name: Build Obsidian Plugin
 
-on: push
+on:
+  push:
+    paths:
+      - 'packages/plugin/**'
+  pull_request:
+    paths:
+      - 'packages/plugin/**'
 
 jobs:
   build:
@@ -14,8 +20,22 @@ jobs:
         with:
           node-version: "18.x"
 
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
       - name: Install dependencies
-        run: npm install
+        run: |
+          cd packages/plugin
+          pnpm install
 
       - name: Build plugin
-        run: npm run build
+        run: |
+          cd packages/plugin
+          GITHUB_ACTIONS=true pnpm build
+
+      - name: Run tests
+        run: |
+          cd packages/plugin
+          pnpm test  

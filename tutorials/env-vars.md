@@ -8,13 +8,23 @@
 - `OPENAI_API_KEY`: The API key for OpenAI integration.
 - `ANTHROPIC_API_KEY`: To use the Anthropic models
 
+### Amazon Bedrock
+
+To use Amazon Bedrock models, you need to configure AWS credentials:
+
+- `AWS_ACCESS_KEY_ID`: Your AWS access key ID
+- `AWS_SECRET_ACCESS_KEY`: Your AWS secret access key
+- `AWS_REGION`: The AWS region where Bedrock is enabled (e.g., "us-east-1")
+
+Note: Make sure your AWS account has access to the Bedrock models and the IAM user has the `AmazonBedrockFullAccess` policy.
+
+Available Bedrock Models:
+- `anthropic.claude-3-sonnet-20240229-v1:0`: Latest Claude 3 Sonnet model
+- Additional models can be found in the AWS Bedrock console
+
 ### Models
 
-- `MODEL_RELATIONSHIPS`: The model to use for determining file relationships. Defaults to `"gpt-4o"` if not set.
-- `MODEL_TAGGING`: The model to use for file tagging. Defaults to `"gpt-4o"` if not set.
-- `MODEL_FOLDERS`: The model to use for determining appropriate folders for files. Defaults to `"gpt-4o"` if not set. 
 - `MODEL_NAME`: The model to use for generating file names. Defaults to `"gpt-4o"` if not set.
-- `MODEL_TEXT`: The model to use for text formatting. Defaults to `"gpt-4o"` if not set.
 
 ### API Keys
 This is necessary when deploying with vercel, but not required if you run it locally.
