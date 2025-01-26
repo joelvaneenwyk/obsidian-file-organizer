@@ -24,6 +24,8 @@
     "typescript": "^5.2.2"
   },
   "dependencies": {
+    "class-variance-authority": "^0.7.0",
+    "@radix-ui/react-slot": "^1.0.2",
     "@ai-sdk/openai": "^1.0.6",
     "@ai-sdk/react": "^1.0.6",
     "@emotion/styled": "^11.13.0",

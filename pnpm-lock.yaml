@@ -188,6 +188,9 @@ importers:
       '@emotion/styled':
         specifier: ^11.13.0
         version: 11.14.0(@emotion/react@11.14.0)(@types/react@18.2.28)(react@18.3.1)
+      '@radix-ui/react-slot':
+        specifier: ^1.0.2
+        version: 1.1.1(@types/react@18.2.28)(react@18.3.1)
       '@radix-ui/react-tooltip':
         specifier: ^1.0.7
         version: 1.1.6(@types/react@18.2.28)(react-dom@18.3.1)(react@18.3.1)
@@ -215,6 +218,9 @@ importers:
       chokidar:
         specifier: ^3.6.0
         version: 3.6.0
+      class-variance-authority:
+        specifier: ^0.7.0
+        version: 0.7.1
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
